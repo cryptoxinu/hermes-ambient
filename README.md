@@ -39,13 +39,22 @@ This is the **direct, native** path: Hermes talks straight to Ambient. Hermes ha
 no request middleware, so there is no in-process reliability layer here. If you
 want the max-tokens floor and context-overflow handling (a reasoning model on a
 tight budget can otherwise return empty), route Hermes through the local bridge
-instead — see [`ambient-agents`](https://github.com/cryptoxinu/ambient-agents),
-which serves both Hermes and OpenClaw.
+instead — see [`ambient-agents`](https://github.com/cryptoxinu/ambient-agents).
 
 ## Get an API key
 
 Sign up at [app.ambient.xyz](https://app.ambient.xyz), create an API key, and
 export it as `AMBIENT_API_KEY`.
+
+## Development
+
+`setup.py` is standard-library only. Its config-editing safety is covered by a
+test suite (never duplicates a key, idempotent, refuses an existing block,
+preserves line endings):
+
+```bash
+python3 test_setup.py
+```
 
 ## License
 
